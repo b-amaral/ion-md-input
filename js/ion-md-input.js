@@ -41,6 +41,9 @@ angular.module('ionMdInput', [])
         'ng-blur': attr.ngBlur,
         'ng-focus': attr.ngFocus,
         'ng-disabled': attr.ngDisabled,
+        'pattern': attr.pattern,
+        'min': attr.min,
+        'max': attr.max
       }, function(value, name) {
         if (angular.isDefined(value)) {
           input.attr(name, value);
