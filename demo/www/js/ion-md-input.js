@@ -43,7 +43,9 @@ angular.module('ionMdInput', [])
         'ng-disabled': attr.ngDisabled,
         'pattern': attr.pattern,
         'min': attr.min,
-        'max': attr.max
+        'max': attr.max,
+        'step': attr.step,
+        'oninput': attr.oninput
       }, function(value, name) {
         if (angular.isDefined(value)) {
           input.attr(name, value);
