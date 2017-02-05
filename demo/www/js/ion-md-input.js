@@ -45,7 +45,8 @@ angular.module('ionMdInput', [])
         'min': attr.min,
         'max': attr.max,
         'step': attr.step,
-        'oninput': attr.oninput
+        'oninput': attr.oninput,
+        'custom-validation': attr.customValidation
       }, function(value, name) {
         if (angular.isDefined(value)) {
           input.attr(name, value);
