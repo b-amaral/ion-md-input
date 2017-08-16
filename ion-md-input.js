@@ -53,6 +53,9 @@ angular.module('ionMdInput', [])
       }, function(value, name) {
         if (angular.isDefined(value)) {
           input.attr(name, value);
+          if (name == 'ui-mask') {
+              attr.$set('uiMask'); //remove the directive from the element to prevent errors
+          }
         }
       });
 
