@@ -48,6 +48,8 @@ angular.module('ionMdInput', [])
         'max': attr.max,
         'step': attr.step,
         'oninput': attr.oninput,
+        'model-view-value': attr.modelViewValue,
+        'ui-mask': attr.uiMask,
         'custom-validation': attr.customValidation
       }, function(value, name) {
         if (angular.isDefined(value)) {
