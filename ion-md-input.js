@@ -3,7 +3,7 @@ angular.module('ionMdInput', [])
 .directive('ionMdInput', function() {
   return {
     restrict: 'E',
-    replace: true,
+    transclude: true,
     require: '?ngModel',
     template: '<label class="item item-input item-md-label">' +
       '<input type="text" class="md-input">' +
@@ -11,7 +11,6 @@ angular.module('ionMdInput', [])
       '<div class="highlight"></div>' +
       '</label>',
     compile: function(element, attr) {
-
       var highlight = element[0].querySelector('.highlight');
       var highlightColor;
       if (!attr.highlightColor) {
