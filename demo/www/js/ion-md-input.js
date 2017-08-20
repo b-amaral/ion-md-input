@@ -25,36 +25,12 @@ angular.module('ionMdInput', [])
 
       /*Start From here*/
       var input = element.find('input');
-      angular.forEach({
-        'name': attr.name,
-        'type': attr.type,
-        'ng-value': attr.ngValue,
-        'ng-model': attr.ngModel,
-        'required': attr.required,
-        'ng-required': attr.ngRequired,
-        'minlength': attr.minlength,
-        'ng-minlength': attr.ngMinlength,
-        'maxlength': attr.maxlength,
-        'ng-maxlength': attr.ngMaxlength,
-        'ng-pattern': attr.ngPattern,
-        'ng-change': attr.ngChange,
-        'ng-trim': attr.trim,
-        'ng-blur': attr.ngBlur,
-        'ng-focus': attr.ngFocus,
-        'ng-disabled': attr.ngDisabled,
-        'pattern': attr.pattern,
-        'min': attr.min,
-        'max': attr.max,
-        'step': attr.step,
-        'oninput': attr.oninput,
-        'model-view-value': attr.modelViewValue,
-        'ui-mask': attr.uiMask,
-        'custom-validation': attr.customValidation
-      }, function(value, name) {
-        if (angular.isDefined(value)) {
-          input.attr(name, value);
-          if (name == 'ui-mask') {
-              attr.$set('uiMask'); //remove the directive from the element to prevent errors
+      var ignoreAttrs = ['highlightColor', 'placeholder', 'class', 'style'];
+      angular.forEach(attr.$attr, function(value, name) {
+        if (ignoreAttrs.indexOf(name) == -1 && angular.isDefined(attr[name])) {
+          input.attr(value, attr[name]);
+          if (name == 'uiMask') {
+            attr.$set('uiMask'); //remove the directive from the element to prevent errors
           }
         }
       });
